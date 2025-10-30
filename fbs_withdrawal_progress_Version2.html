@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FBS Transaction Progress</title>
+  <style>
+    :root {
+      --brand: #0a7f3f;
+      --bg: #f4f6f8;
+      --muted: #777;
+      --card: #fff;
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--bg);
+      color: #333;
+      -webkit-font-smoothing: antialiased;
+    }
+    header {
+      background-color: var(--brand);
+      color: white;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header img {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+    .container {
+      max-width: 720px;
+      margin: 30px auto;
+      background-color: var(--card);
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.06);
+    }
+    h1 {
+      font-size: 22px;
+      margin: 0 0 8px 0;
+    }
+    .meta {
+      margin: 0 0 20px 0;
+      font-size: 14px;
+    }
+    .progress-bar {
+      background-color: #ddd;
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 16px 0;
+    }
+    .progress {
+      height: 20px;
+      background-color: var(--brand);
+      transition: width 0.4s ease;
+    }
+    .section {
+      margin-bottom: 22px;
+    }
+    .section h2 {
+      font-size: 18px;
+      margin: 0 0 8px 0;
+    }
+    .section p {
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .button {
+      display: inline-block;
+      background-color: var(--brand);
+      color: white;
+      padding: 10px 16px;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 12px;
+    }
+    .legal-list {
+      padding-left: 1.2rem;
+      margin: 0.5rem 0 0 0;
+    }
+    .legal-icons {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px;
+      align-items: center;
+    }
+    .legal-icons img {
+      display: inline-block;
+      height: 40px;
+      width: 40px;
+      object-fit: contain;
+    }
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      padding: 20px;
+      margin-top: 16px;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>Welcome back, Birger Pedersen</div>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuzjqjLhH0Vp5r-4wnNl3DrifA007kJSMZXA&s" alt="FBS Logo" />
+  </header>
+
+  <main class="container" role="main">
+    <h1>Your Withdrawal Request Is Processing</h1>
+    <p class="meta"><strong>Amount:</strong> $3,500 USD → KR 22,000</p>
+
+    <div
+      class="progress-bar"
+      role="progressbar"
+      aria-label="Transaction progress"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="75"
+    >
+      <div class="progress" style="width:75%" aria-hidden="true"></div>
+    </div>
+    <p class="meta"><strong>Transaction Progress:</strong> 75% Complete</p>
+
+    <section class="section" aria-labelledby="pending-fees-heading">
+      <h2 id="pending-fees-heading">⚠ Pending: Foreign Transaction Fees</h2>
+      <p>
+        We are aware of your transfer request. Due to the nature of this transaction, it is currently pending.
+        This delay is caused by foreign transaction fees in accordance with regulatory standards.
+        Once the fee is settled, your transaction will be completed.
+      </p>
+      <p style="margin-top:8px;">
+        <strong>Your payout:</strong> KR 22,000 — <strong>Required commission:</strong> KR 5,250
+      </p>
+      <a href="/resolve-fees" class="button" role="button" rel="noopener noreferrer">Resolve fees</a>
+    </section>
+
+    <section class="section" aria-labelledby="maturity-heading">
+      <h2 id="maturity-heading">✅ Maturity Date</h2>
+      <p>
+        Thank you for choosing FBS Trading. Your transaction maturity date is <strong>5 November 2025</strong>.
+        Please ensure you resolve any outstanding items before the maturity date to avoid delays or potential loss.
+      </p>
+    </section>
+
+    <section class="section" aria-labelledby="legal-heading">
+      <h2 id="legal-heading">📄 Legal &amp; Regulatory Info</h2>
+      <ul class="legal-list">
+        <li>FBS Trading is a licensed financial platform operating under international trading regulations.</li>
+        <li>All transactions are protected and monitored for compliance.</li>
+        <li>Firm Reference Number: 999295</li>
+        <li>VISA &amp; TransferGo supported</li>
+      </ul>
+
+      <div class="legal-icons" aria-hidden="false">
+        <img src="https://cdn-icons-png.flaticon.com/128/196/196578.png" alt="Visa logo" width="40" height="40" />
+        <img src="https://cdn-icons-png.flaticon.com/128/14082/14082959.png" alt="TransferGo logo" width="40" height="40" />
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="help-heading">
+      <h2 id="help-heading">🆘 Need Help?</h2>
+      <p>
+        If you do not receive your funds within 5 minutes after the completion notification, please contact support immediately.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 FBS Trading Platform. All rights reserved.
+  </footer>
+</body>
+</html>
